@@ -1,10 +1,9 @@
 from django.db import models
-from uuid import uuid4
-
+from django.utils.crypto import get_random_string
 # Create your models here.
 
 def short():
-    shortname=uuid4().hex
+    shortname=get_random_string(length=6)
     return shortname
 
 class Link(models.Model):
