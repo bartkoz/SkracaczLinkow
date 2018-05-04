@@ -1,0 +1,11 @@
+{% extends 'skracacz/base.html' %}
+{% load static %}
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <div class="form-group" style="width:40vw; margin:0 auto; margin-top:30vh;">
+    <input name="link" type="url" class="form-control" aria-describedby="Wklej adres URL" placeholder="Wklej link do skrócenia" style="width:100%" required>
+<input type="submit" value="Skracam!" class="btn btn-primary" style="margin-top:2vh; width:100%"/>
+  </div>
+</form>
+{% endblock %}
