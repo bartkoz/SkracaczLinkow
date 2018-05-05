@@ -1,12 +1,28 @@
 {% extends 'skracacz/base.html' %}
 {% load static %}
 {% block content %}
+<style>
+i:hover{
+  color:#007bff;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
 <div class="card" style="width: 40rem; margin:0 auto; margin-top:30vh; text-align:center;">
   <div class="card-body">
     <h2 class="card-title">Link skrócony!</h5>
     <h4 class="card-subtitle mb-2 text-muted"><a href="#" class="card-link">{{ link.link }}</a></h4>
     <h3 class="card-subtitle mb-2 text-muted">skrócony do:</h3>
-    <h3 class="card-subtitle mb-2 text-muted"><a href="/{{ link.short }}" class="card-link">{{ link.short }}</a></h3>
+    <h3 class="card-subtitle mb-2 text-muted"><a href="/{{ link.short }}" class="card-link">{{ link.short }}</a> <i class="far fa-copy" data-clipboard-text="{{ link.short }}"></i></h3>
   </div>
 </div>
+<script>
+   var btns = document.querySelectorAll('i');
+   var clipboard = new ClipboardJS(btns);
+   clipboard.on('success', function(e) {
+       console.log(e);
+   });
+   clipboard.on('error', function(e) {
+       console.log(e);
+   });
+   </script>
 {% endblock %}
