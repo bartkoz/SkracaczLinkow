@@ -8,6 +8,6 @@ def short():
 
 class Link(models.Model):
     link = models.URLField()
-    short = models.CharField(max_length=10, default=short)
+    short = models.CharField(max_length=6, default=short)
     def __str__(self):
         return self.link
