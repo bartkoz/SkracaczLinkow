@@ -4,6 +4,8 @@ from .forms import LinkShortener
 from django.http import HttpResponseRedirect
 
 # Create your views here.
+
+
 def index(request):
     if request.method == 'POST':
         form = LinkShortener(request.POST)
@@ -15,9 +17,11 @@ def index(request):
         form = LinkShortener()
     return render(request, 'skracacz/index.html')
 
+
 def skrocone(request):
     return render(request, 'skracacz/skrocone.html')
 
+
 def link(request, short):
-    link=Link.objects.get(short=short)
+    link = Link.objects.get(short=short)
     return HttpResponseRedirect(link.link)
